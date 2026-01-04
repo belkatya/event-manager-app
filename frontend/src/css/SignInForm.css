@@ -1,0 +1,419 @@
+/* Модальное окно входа */
+
+.signin-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1rem;
+    animation: overlayFadeIn 0.3s ease;
+}
+
+@keyframes overlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.signin-modal-container {
+    max-width: 450px;
+    width: 100%;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signin-modal {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Заголовок */
+.signin-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f0ebff 0%, #e3ebff 40%, #d8ebff 70%, #d4f5ff 100%);
+    border-bottom: 1px solid #eef1f7;
+}
+
+.signin-modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.signin-close-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.signin-close-btn:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.signin-close-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.signin-close-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Форма */
+.signin-form {
+    padding: 2rem;
+}
+
+/* Общая ошибка */
+.error-general {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #fff5f5;
+    border: 1px solid #ff4757;
+    border-radius: 8px;
+    color: #ff4757;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.error-general svg {
+    flex-shrink: 0;
+}
+
+/* Группы полей */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.password-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.form-label::after {
+    content: "*";
+    color: #ff4757;
+    margin-left: 3px;
+}
+
+.forgot-password-btn {
+    background: none;
+    border: none;
+    color: #6d4fe6;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.forgot-password-btn:hover:not(:disabled) {
+    color: #5d7eff;
+}
+
+.forgot-password-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #eef1f7;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.2s ease;
+    background: white;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #6d4fe6;
+    box-shadow: 0 0 0 3px rgba(109, 79, 230, 0.1);
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+.form-input.error {
+    border-color: #ff4757;
+    background: #fff5f5;
+}
+
+.form-input.error:focus {
+    box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+}
+
+.form-input:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.error-message {
+    color: #ff4757;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    display: block;
+}
+
+/* Чекбокс */
+.checkbox-group {
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    user-select: none;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-input:disabled + .checkbox-custom {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.checkbox-input:disabled ~ .checkbox-text {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #eef1f7;
+    border-radius: 4px;
+    background: white;
+    transition: all 0.2s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+    background: #6d4fe6;
+    border-color: #6d4fe6;
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* Кнопка входа */
+.signin-submit-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.signin-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(109, 79, 230, 0.3);
+}
+
+.signin-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.signin-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Индикатор загрузки */
+.loading-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Футер */
+.signin-footer {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #eef1f7;
+    background: #f8f9ff;
+}
+
+.signin-footer-text {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.signin-signup-link {
+    background: none;
+    border: none;
+    color: #6d4fe6;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.signin-signup-link:hover:not(:disabled) {
+    color: #5d7eff;
+}
+
+.signin-signup-link:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .signin-modal-container {
+        max-width: 100%;
+    }
+    
+    .signin-modal-header {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .signin-form {
+        padding: 1.5rem;
+    }
+    
+    .signin-modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .signin-footer {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .signin-modal-overlay {
+        padding: 0.5rem;
+    }
+    
+    .signin-modal-header {
+        padding: 1rem 1.25rem;
+    }
+    
+    .signin-form {
+        padding: 1.25rem;
+    }
+    
+    .signin-footer {
+        padding: 1rem 1.25rem;
+    }
+    
+    .password-label-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .forgot-password-btn {
+        align-self: flex-end;
+    }
+}
+
+/* Стили для скроллбара */
+.signin-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.signin-modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.signin-modal::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.signin-modal::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

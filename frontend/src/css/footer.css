@@ -1,0 +1,37 @@
+/* Футер */
+.footer {
+    background-color: #F1F5F9;
+    padding: 1rem 1rem;
+    text-align: center;
+    border-top: 1px solid #E2E8F0;
+    margin-top: auto;
+}
+
+.footer div {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+    
+    .footer div {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1rem 0.5rem;
+    }
+    
+    .footer div {
+        font-size: 0.85rem;
+    }
+}

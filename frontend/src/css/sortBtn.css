@@ -1,0 +1,109 @@
+.sort-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.sort-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.2s ease;
+    min-width: 200px;
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+.sort-dropdown-btn:hover {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+}
+
+.dropdown-arrow {
+    transition: transform 0.2s ease;
+    font-size: 12px;
+    color: #666;
+}
+
+.dropdown-arrow.open {
+    transform: rotate(180deg);
+}
+
+.sort-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.sort-dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 400;
+}
+
+.sort-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.sort-dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.sort-dropdown-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.sort-dropdown-item.reset-option {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 4px;
+    padding-top: 12px;
+    color: #8a2be2;
+    font-weight: 500;
+}
+
+.sort-dropdown-item.reset-option:hover {
+    background-color: #f8f0ff;
+}
+
+.sort-dropdown-item.reset-option.active {
+    background-color: #8a2be2;
+    color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sort-dropdown-btn {
+        min-width: 160px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .sort-dropdown-item {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}

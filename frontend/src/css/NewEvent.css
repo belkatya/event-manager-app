@@ -1,0 +1,384 @@
+/* Основные стили для страницы создания мероприятия */
+
+.new-event-container {
+    min-height: 100vh;
+    background: #ffffff;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+/* Основное содержимое */
+.new-event-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.new-event-form {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+/* Секции */
+.cover-section,
+.form-fields-section {
+    padding: 2rem;
+    /*border-bottom: 1px solid #eef1f7;*/
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #eef1f7;
+}
+
+/* Секция обложки */
+.cover-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.cover-upload-area {
+    flex: 0 0 300px;
+}
+
+.cover-preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cover-preview-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #eef1f7;
+    aspect-ratio: 16/9;
+}
+
+.cover-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-cover-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #ff4757;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.remove-cover-btn:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    border: 2px dashed #6d4fe6;
+    border-radius: 12px;
+    background: #f8f7ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 16/9;
+    text-align: center;
+}
+
+.upload-label:hover {
+    background: #f0ebff;
+    border-color: #5d7eff;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-text {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.upload-hint {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.cover-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.cover-info-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Поля формы */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid #eef1f7;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #6d4fe6;
+    box-shadow: 0 0 0 3px rgba(109, 79, 230, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #999;
+}
+
+/* Стили для select */
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px;
+    cursor: pointer;
+    padding-right: 2.5rem;
+}
+
+.form-select:invalid {
+    color: #999;
+}
+
+.form-select option {
+    color: #333;
+}
+
+.form-select option[value=""] {
+    color: #999;
+}
+
+/* Стили для date и time inputs */
+.form-input[type="date"],
+.form-input[type="time"] {
+    position: relative;
+}
+
+/* Подсказка часового пояса */
+.timezone-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.4rem;
+    font-style: italic;
+}
+
+/* Текстовые поля */
+.form-textarea {
+    min-height: 60px;
+}
+
+.short-description {
+    min-height: 100px;
+}
+
+.full-description {
+    min-height: 180px;
+}
+
+.character-count {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 0.4rem;
+}
+
+/* Кнопки действий */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.cancel-button,
+.submit-button {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+    min-width: 160px;
+}
+
+.cancel-button {
+    background: white;
+    border: 2px solid #eef1f7;
+    color: #666;
+}
+
+.cancel-button:hover {
+    background: #f5f5f5;
+    border-color: #999;
+    color: #333;
+}
+
+.submit-button {
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    border: none;
+    color: white;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(109, 79, 230, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .new-event-content {
+        padding: 0 1rem;
+    }
+    
+    .cover-section,
+    .form-fields-section {
+        padding: 1.5rem;
+    }
+    
+    .cover-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .cover-upload-area {
+        flex: none;
+        width: 100%;
+    }
+    
+    .upload-label {
+        padding: 2rem 1rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    
+    .cancel-button,
+    .submit-button {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-section,
+    .form-fields-section {
+        padding: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 0.75rem 0.9rem;
+        font-size: 0.95rem;
+    }
+    
+    .upload-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .upload-text {
+        font-size: 1rem;
+    }
+    
+    .timezone-hint {
+        font-size: 0.75rem;
+    }
+}

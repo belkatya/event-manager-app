@@ -1,0 +1,335 @@
+/* Основные стили хедера */
+.header {
+    background: white;
+    color: #333;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Навигационная панель */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Бренд/логотип с градиентом */
+.nav-brand h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.brand-title {
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    user-select: none;
+}
+
+/* Навигационные ссылки */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+/* Кнопки действий */
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-login, .btn-register {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    background: transparent;
+    color: #333;
+    border: 2px solid #e0e0e0;
+}
+
+.btn-login:hover {
+    background: #f8f9fa;
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.btn-register {
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    color: white;
+}
+
+.btn-register:hover {
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
+
+/* Стили для выпадающего меню пользователя */
+
+/* Кнопка пользователя */
+.user-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.user-dropdown-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(109, 79, 230, 0.3);
+}
+
+.user-name {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.dropdown-arrow.open {
+    transform: rotate(180deg);
+}
+
+/* Контейнер для позиционирования меню */
+.nav-actions {
+    position: relative;
+}
+
+/* Выпадающее меню */
+.user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1001;
+    animation: dropdownFadeIn 0.2s ease;
+    border: 1px solid #eef1f7;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовок меню с аватаркой */
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: linear-gradient(135deg, #f8f7ff 0%, #f0f7ff 100%);
+    border-bottom: 1px solid #eef1f7;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.user-info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.user-info-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-info-email {
+    font-size: 0.85rem;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Разделитель */
+.dropdown-divider {
+    height: 1px;
+    background: #eef1f7;
+    margin: 0.5rem 0;
+}
+
+/* Элементы меню */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.dropdown-item:hover {
+    background: #f8f9ff;
+    color: #6d4fe6;
+}
+
+.dropdown-item:active {
+    background: #f0f7ff;
+}
+
+/* Специальный стиль для кнопки Выход */
+.dropdown-item.logout {
+    color: #ff4757;
+    border-top: 1px solid #eef1f7;
+}
+
+.dropdown-item.logout:hover {
+    background: #fff5f5;
+    color: #ff4757;
+}
+
+/* Иконки в меню */
+.dropdown-icon {
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+.dropdown-item:hover .dropdown-icon {
+    opacity: 1;
+}
+
+/* Адаптивность для выпадающего меню */
+@media (max-width: 768px) {
+    .user-dropdown-btn {
+        min-width: 150px;
+        padding: 0.5rem 1rem;
+    }
+    
+    .user-dropdown-menu {
+        width: 250px;
+    }
+    
+    .user-name {
+        display: none; /* Скрываем имя на мобильных, оставляем только стрелку */
+    }
+    
+    .user-dropdown-btn {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .user-name {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-dropdown-menu {
+        width: 200px;
+        right: -20px;
+    }
+    
+    .dropdown-header {
+        padding: 1rem;
+    }
+    
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .user-info-name {
+        font-size: 0.9rem;
+    }
+    
+    .user-info-email {
+        font-size: 0.8rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}

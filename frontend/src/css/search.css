@@ -1,0 +1,307 @@
+/* Контейнер поисковой секции */
+.search-section {
+    background: linear-gradient(135deg, #f0ebff 0%, #e3ebff 40%, #d8ebff 70%, #d4f5ff 100%);
+    padding: 2rem 2rem 3rem 2rem;
+    color: white;
+    text-align: center;
+}
+
+/* Заголовок */
+.search-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #333;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 0 1rem 0;
+    text-align: left;
+    user-select: none;
+}
+
+/* Форма поиска */
+.search-form {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+/* Основной контейнер поиска */
+.search-container {
+    display: flex;
+    gap: 1.5rem;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 0;
+}
+
+/* Обертка для input с иконкой */
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 1100px;
+    background: white;
+    border-radius: 12px;
+    padding: 0 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-input-wrapper:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Иконка лупы */
+.search-icon {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #999;
+}
+
+/* Поле ввода */
+.search-input {
+    flex: 1;
+    padding: 0.7rem 0;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: #333;
+    background: transparent;
+    border-radius: 50px;
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-size: 1rem;
+}
+
+/* search.css */
+.clear-search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.clear-search-btn:hover {
+    color: #333;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.search-input {
+    padding-right: 35px; /* Место для кнопки очистки */
+}
+
+/* Кнопка поиска (отдельно) */
+.search-button {
+    padding: 0.9rem 2.5rem;
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    border-radius: 12px;
+}
+
+.search-button:hover {
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.search-button:active {
+    transform: translateY(0);
+}
+
+/* SVG иконка лупы */
+.search-icon-svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 1rem;
+    object-fit: contain;
+    user-select: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .search-section {
+        padding: 2rem 1rem;
+    }
+    
+    .search-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-input-wrapper {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .search-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-title {
+        font-size: 1.8rem;
+    }
+    
+    .search-input {
+        font-size: 1rem;
+        padding: 1rem 0;
+        font-family: 'Segoe UI', sans-serif; 
+    }
+    
+    .search-input-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .search-button {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+}
+
+/* Стили для шапки создания нового мероприятия */
+
+.new-event-header {
+    padding-bottom: 2rem;
+}
+
+.new-event-steps {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.new-event-step {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    min-width: 180px;
+}
+
+.new-event-step:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.new-event-step.active {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.new-event-step.active:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.new-event-step.active .step-number {
+    background: linear-gradient(135deg, #6d4fe6 0%, #5d7eff 50%, #01d2ee 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(109, 79, 230, 0.4);
+}
+
+.step-text {
+    color: rgb(54, 54, 54);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.new-event-step.active .step-text {
+    color: #333;
+    font-weight: 700;
+}
+
+/* Адаптивность для кнопок шагов */
+@media (max-width: 768px) {
+    .new-event-steps {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+    
+    .new-event-step {
+        justify-content: center;
+        padding: 0.75rem 1rem;
+    }
+    
+    .step-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .new-event-header {
+        padding: 1.5rem 1rem 1rem 1rem;
+        
+    }
+    
+    .new-event-step {
+        min-width: auto;
+        padding: 0.75rem 1rem;
+    }
+    
+    .step-text {
+        font-size: 0.9rem;
+    }
+}
